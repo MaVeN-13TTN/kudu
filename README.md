@@ -26,6 +26,44 @@ A modern, luxury e-commerce storefront for handcrafted leather goods, built with
 - **Better DX** - Enhanced developer experience with improved hot reloading
 - **Modern Standards** - Latest ESLint rules and TypeScript configurations
 
+## 🔐 Authentication & Account Management
+
+### Complete User Authentication System
+
+- **🔑 Login/Sign Up Pages** - Secure user registration and authentication
+- **📧 Email Verification** - OTP-based email verification during registration
+- **🔒 Password Management** - Forgot password and reset password functionality
+- **🌐 Social Authentication** - Google OAuth integration (ready for implementation)
+- **🔄 Session Management** - Persistent login state with automatic logout
+- **🛡️ Form Validation** - Real-time validation with security best practices
+
+### Advanced Account Management
+
+- **👤 Profile Management** - Complete user profile with editable information
+- **📸 Profile Pictures** - Photo upload with preview and validation (5MB max, image formats only)
+- **🔐 Security Settings** - Password change with strength validation
+- **📱 Responsive Design** - Optimized for all devices with clean UI/UX
+- **⚙️ Account Settings** - Notification preferences, privacy controls
+- **📦 Order History** - Track orders with status updates and reorder functionality
+- **❤️ Wishlist Management** - Save and manage favorite products
+- **📍 Address Book** - Multiple shipping addresses with default selection
+- **💳 Payment Methods** - Secure payment method storage and management
+
+### Authentication Flow
+
+1. **Registration** → Email Verification (OTP) → Login
+2. **Login** → Dashboard (conditional navigation based on auth state)
+3. **Password Recovery** → Email Reset Link → New Password
+4. **Profile Updates** → Real-time validation → Secure save
+
+### Security Features
+
+- **✅ Input Validation** - Client-side and server-ready validation
+- **✅ File Upload Security** - Image type and size validation
+- **✅ Session Security** - Secure state management
+- **✅ Password Strength** - Real-time strength indicators
+- **✅ Error Handling** - User-friendly error messages
+
 ## �🌟 Features
 
 ### Core E-commerce Functionality
@@ -34,9 +72,9 @@ A modern, luxury e-commerce storefront for handcrafted leather goods, built with
 - **Shopping Cart** - Add, remove, and manage items with quantity controls
 - **Wishlist** - Save favorite products for later
 - **Search** - Advanced search with filtering and sorting options
-- **User Authentication** - Login/register with social media integration
+- **User Authentication** - Complete authentication system with login, registration, email verification, and password recovery
 - **Checkout Process** - Multi-step checkout with shipping and payment options
-- **Account Management** - Order history, addresses, and profile settings
+- **Account Management** - Comprehensive user dashboard with profile management, photo upload, order history, and settings
 
 ### Modern UI/UX
 
@@ -60,8 +98,13 @@ A modern, luxury e-commerce storefront for handcrafted leather goods, built with
 8. **Search Results** - Dynamic search with suggestions
 9. **Shopping Cart** - Cart management and order summary
 10. **Checkout** - Multi-step purchase process
-11. **Account** - User dashboard with order history
+11. **Account Management** - Comprehensive user dashboard with profile, orders, wishlist, addresses, payments, and settings
 12. **Wishlist** - Saved items management
+13. **Login** - User authentication with social login options
+14. **Sign Up** - User registration with validation and demo credentials
+15. **OTP Verification** - Email verification with 6-digit code input
+16. **Forgot Password** - Password recovery flow
+17. **Reset Password** - Secure password reset functionality
 
 ## 🚀 Quick Start
 
@@ -169,12 +212,19 @@ kudu/
 │   │   │   ├── ProductDetailPage.tsx
 │   │   │   ├── StoryPage.tsx
 │   │   │   ├── CollectionsPage.tsx
+│   │   │   ├── CollectionDetailPage.tsx
 │   │   │   ├── GiftsPage.tsx
 │   │   │   ├── ContactPage.tsx
+│   │   │   ├── SearchResultsPage.tsx
 │   │   │   ├── CartPage.tsx
 │   │   │   ├── CheckoutPage.tsx
 │   │   │   ├── AccountPage.tsx
-│   │   │   └── WishlistPage.tsx
+│   │   │   ├── WishlistPage.tsx
+│   │   │   ├── LoginPage.tsx
+│   │   │   ├── SignUpPage.tsx
+│   │   │   ├── OTPVerificationPage.tsx
+│   │   │   ├── ForgotPasswordPage.tsx
+│   │   │   └── ResetPasswordPage.tsx
 │   │   ├── types/        # TypeScript type definitions
 │   │   │   └── index.ts
 │   │   ├── App.tsx       # Main app component
@@ -275,6 +325,23 @@ Target scores for production:
 
 ## 🧪 Testing
 
+### Authentication Testing
+
+**Login Demo Credentials:**
+
+- Email: `demo@kudu.com`
+- Password: `demo123`
+
+**OTP Verification Testing:**
+
+- **Valid OTP**: Any 6-digit code (e.g., `123456`, `555555`)
+- **Invalid OTP**: `000000` (triggers error for testing)
+
+**Password Reset Testing:**
+
+- Use any email format for forgot password flow
+- Demo implementation with 2-second loading simulation
+
 ### Running Tests
 
 ```bash
@@ -287,6 +354,8 @@ npm run test
 - Unit tests for components
 - Integration tests for user flows
 - E2E tests for critical paths
+- Authentication flow testing
+- Form validation testing
 
 ## 🚀 Deployment
 

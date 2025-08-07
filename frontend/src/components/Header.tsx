@@ -75,9 +75,18 @@ const Header = () => {
               >
                 <MagnifyingGlass className="h-5 w-5" />
               </button>
-              <Link to="/account" className="p-2 text-gray-700 hover:text-amber-900 transition-all duration-300 hover:bg-amber-50 rounded-full hover:scale-110">
-                <User className="h-5 w-5" />
-              </Link>
+              
+              {/* Conditional User Icon */}
+              {state.isLoggedIn ? (
+                <Link to="/account" className="p-2 text-gray-700 hover:text-amber-900 transition-all duration-300 hover:bg-amber-50 rounded-full hover:scale-110">
+                  <User className="h-5 w-5" />
+                </Link>
+              ) : (
+                <Link to="/login" className="p-2 text-gray-700 hover:text-amber-900 transition-all duration-300 hover:bg-amber-50 rounded-full hover:scale-110">
+                  <User className="h-5 w-5" />
+                </Link>
+              )}
+              
               <Link to="/wishlist" className="p-2 text-gray-700 hover:text-amber-900 transition-all duration-300 hover:bg-amber-50 rounded-full hover:scale-110 relative">
                 <Heart className="h-5 w-5" />
                 {wishlistItemCount > 0 && (

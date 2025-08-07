@@ -6,6 +6,12 @@ interface AppState {
   wishlist: WishlistItem[];
   isSearchOpen: boolean;
   searchQuery: string;
+  isLoggedIn: boolean;
+  user: {
+    firstName: string;
+    lastName: string;
+    email: string;
+  } | null;
 }
 
 type AppAction = 
@@ -16,13 +22,17 @@ type AppAction =
   | { type: 'REMOVE_FROM_WISHLIST'; payload: string }
   | { type: 'TOGGLE_SEARCH'; payload?: boolean }
   | { type: 'SET_SEARCH_QUERY'; payload: string }
-  | { type: 'CLEAR_CART' };
+  | { type: 'CLEAR_CART' }
+  | { type: 'LOGIN'; payload: { firstName: string; lastName: string; email: string } }
+  | { type: 'LOGOUT' };
 
 const initialState: AppState = {
   cart: [],
   wishlist: [],
   isSearchOpen: false,
   searchQuery: '',
+  isLoggedIn: false,
+  user: null,
 };
 
 const AppContext = createContext<{
@@ -109,6 +119,22 @@ function appReducer(state: AppState, action: AppAction): AppState {
       return {
         ...state,
         cart: [],
+      };
+    
+    case 'LOGIN':
+      return {
+        ...state,
+        isLoggedIn: true,
+        user: action.payload,
+      };
+    
+    case 'LOGOUT':
+      return {
+        ...state,
+        isLoggedIn: false,
+        user: null,
+        cart: [], // Clear cart on logout
+        wishlist: [], // Clear wishlist on logout
       };
     
     default:
