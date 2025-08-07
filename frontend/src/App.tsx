@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './contexts/AppContext';
 import Header from './components/Header';
@@ -11,7 +10,6 @@ import CollectionsPage from './pages/CollectionsPage';
 import CollectionDetailPage from './pages/CollectionDetailPage';
 import GiftsPage from './pages/GiftsPage';
 import ContactPage from './pages/ContactPage';
-import SearchResultsPage from './pages/SearchResultsPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import AccountPage from './pages/AccountPage';
@@ -48,7 +46,6 @@ function App() {
                   <Route path="/collections/:id" element={<CollectionDetailPage />} />
                   <Route path="/gifts" element={<GiftsPage />} />
                   <Route path="/contact" element={<ContactPage />} />
-                  <Route path="/search" element={<SearchResultsPage />} />
                   <Route path="/cart" element={<CartPage />} />
                   <Route path="/checkout" element={<CheckoutPage />} />
                   <Route path="/account" element={<AccountPage />} />

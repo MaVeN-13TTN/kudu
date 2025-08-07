@@ -107,6 +107,8 @@ function appReducer(state: AppState, action: AppAction): AppState {
       return {
         ...state,
         isSearchOpen: action.payload !== undefined ? action.payload : !state.isSearchOpen,
+        // Clear search query when closing search modal
+        searchQuery: action.payload === false ? '' : state.searchQuery,
       };
     
     case 'SET_SEARCH_QUERY':
